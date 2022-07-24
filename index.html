@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Menu Card</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+		<!-- We import arjs version without NFT but with marker + location based support -->
+		<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+		<script src="aframe-ar.js"></script>
+		<script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+	  
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<!-- <script src="js/connectToFirestore.js"></script> -->
+		<!-- Bootstrap -->
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+			crossorigin="anonymous"
+		/>
+		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+
+		<script>
+			// Your web app's Firebase configuration
+			const firebaseConfig = {
+				apiKey: "AIzaSyBVGXAbC3VXR_a2A4JlgwaXp6LP1yRITBg",
+				authDomain: "ar-restaurant-e3096.firebaseapp.com",
+				projectId: "ar-restaurant-e3096",
+				storageBucket: "ar-restaurant-e3096.appspot.com",
+				messagingSenderId: "978056092324",
+				appId: "1:978056092324:web:25163cf2527dbbed79a431",
+			};
+
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+			firebase.analytics();
+		</script>
+		<script src="js/createButton.js"></script>
+		<script src="js/markerHandler.js"></script>
+
+		<script src="js/createMarker.js"></script>
+
+		<!-- Local StyleSheet -->
+		<link rel="stylesheet" href="./style.css" />
+		<!--Marker Handler Src-->
+	</head>
+
+	<body style="margin: 0px; overflow: hidden">
+		<a-scene
+			id="scene"
+			embedded
+			vr-mode-ui="enabled: false"
+			arjs="sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;debugUIEnabled: false;"
+			gesture-detector
+			create-button
+			create-marker
+		>
+			<!-- Camera -->
+			<a-entity camera></a-entity>
+			<!-- <a-assets>
+				<a-asset-item
+					src="assets/dish-markers/pizza.jpg"
+					id="pizza-img"
+				></a-asset-item>
+				<a-asset-item
+					src="assets/models/pizza/scene.gltf"
+					id="pizza-gltf"
+				></a-asset-item>
+			</a-assets> -->
+			<!-- <a-marker
+				id="pizza-marker"
+				type="pattern"
+				url="assets/markersss/pattern-pizza.patt"
+				cursor="rayOrigin: mouse"
+				marker-handler
+			>
+				<a-entity
+					id="pizza-model"
+					gltf-model="#pizza-gltf"
+					position="-1 0 -0.5"
+					scale="0.05 0.05 0.05"
+					gesture-handler
+				>
+				</a-entity>
+				<a-plane position="1 0 0" width="1.5" height="1.5" rotation="-90 0 0">
+					<a-plane
+						position="0 0.89 0.02"
+						width="1.49"
+						height="0.3"
+						rotation="0 0 0"
+						color="yellow"
+					>
+						<a-entity
+							position="0 0 0.1"
+							rotation="0 0 0"
+							text="value: Double cheese pizza; font: monoid; color: black; width: 1.8; height: 1; align: center;"
+						></a-entity>
+					</a-plane>
+					<a-entity
+						position="0 0 0.1"
+						rotation="0 0 0"
+						text="value: Tomato Sauce \n Cheese \n Oliver Oil \n galapeno \n Paneer ; font: monoid; color: black; width: 2; align: center;"
+					></a-entity>
+				</a-plane>
+			</a-marker> -->
+		</a-scene>
+
+		<!-- Button Main Div -->
+		<div id="button-div"></div>
+	</body>
+</html>
